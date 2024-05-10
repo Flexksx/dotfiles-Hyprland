@@ -1,0 +1,1 @@
+cp ~/dotfiles-Hyprland/hyprland/hyprland.conf ~/.config/hypr/hyprland.conf
