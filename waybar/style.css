@@ -1,3 +1,5 @@
+@import url("file:///home/flexksx/.cache/wal/colors-gtk3.css");
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -5,8 +7,8 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: @backgroundAlpha;
+    border-bottom: 3px solid @color1;
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -115,16 +117,18 @@ button:hover {
 
 #clock {
     background-color: #64727D;
+    margin-bottom: 3px;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: @background;
+    color: @foreground;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: @foreground;
+    background-color: @background;
+    margin-bottom: 3px;
 }
 
 @keyframes blink {
