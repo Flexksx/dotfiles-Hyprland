@@ -1,0 +1,1 @@
+cp ~/dotfiles-Hyprland/pyprland/pyprland.toml ~/.config/hypr/pyprland.toml
