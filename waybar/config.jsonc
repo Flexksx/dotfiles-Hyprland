@@ -1,8 +1,8 @@
 {
     "layer": "top",
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["battery", "clock"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["battery", "clock","cpu"],
     "reload_style_on_change": true,
     "sway/window": {
         "max-length": 50
@@ -13,5 +13,19 @@
     },
     "clock": {
         "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "cpu":{
+        "interval": 5,
+        "format": "{usage} % "
+    },
+    "hyprland/workspaces": {
+        "format": "{icon} {name}",
+        "icons": ["", "", "", "", "", "", "", "", "", ""],
+        "click-left": "swaymsg workspace {name}"
+    },
+    "hyprland/window": {
+        "icon":true,
+        "format": "{title}",
+        "max-length": 50
     }
 }

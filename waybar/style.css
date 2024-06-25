@@ -8,16 +8,27 @@
 
 window#waybar {
     background-color: @backgroundAlpha;
-    border-bottom: 3px solid @color1;
+    border-bottom: 3px solid @color3;
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
+}
+
+
+#window{
+    background-color: @color4;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
+windows#waybar.empty #window{
+    background-color: transparent;
+}
 /*
 window#waybar.empty {
     background-color: transparent;
