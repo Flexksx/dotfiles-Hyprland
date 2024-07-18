@@ -23,6 +23,8 @@ window#waybar {
 
 /* Focused window styling */
 #window {
+  transition-duration: 100ms;
+  transition-property: all;
   color: @color7;
   padding: 0px 15px 0px 10px;
   background-color: @color6;
