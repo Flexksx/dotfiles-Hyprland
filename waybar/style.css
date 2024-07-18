@@ -16,11 +16,12 @@ window#waybar {
 
 
 #window{
-    background-color: @color4;
+    background-color: @color5;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
 }
+
 
 window#waybar.hidden {
     opacity: 0.2;
@@ -110,6 +111,7 @@ button:hover {
     padding: 0 10px;
     color: #ffffff;
 }
+
 
 #window,
 #workspaces {
@@ -219,12 +221,13 @@ label:focus {
 }
 
 #wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
+    background-color: @color3;
+    color: @color7;
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    background-color: @color1;
+    color: @color7;
 }
 
 #custom-media {
@@ -242,11 +245,13 @@ label:focus {
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color:@color4;
+    color:@color7;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: @color7;
+    color:@color4;
 }
 
 #tray {

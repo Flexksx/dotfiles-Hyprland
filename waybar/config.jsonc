@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["battery", "clock","cpu"],
+    "modules-right": ["wireplumber","temperature","cpu","battery", "clock","custom/darkmode","tray"],
     "reload_style_on_change": true,
     "sway/window": {
         "max-length": 50
@@ -27,5 +27,12 @@
         "icon":true,
         "format": "{title}",
         "max-length": 50
+    },
+    "custom/darkmode":{
+        // "format": " 🌕 ",
+        "exec": "gsettings get org.gnome.desktop.interface color-scheme | grep -q 'dark' && echo '🌕' || echo '☀️'",
+        "interval": 10,
+        "on-click":"~/dotfiles-Hyprland/waybar/scripts/darkmode.sh",
+        "on-click-right": "~/dotfiles-Hyprland/waybar/scripts/lightmode.sh"
     }
 }
