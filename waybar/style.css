@@ -3,20 +3,21 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: "Ubuntu Mono";
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* Overall Waybar styling */
 window#waybar {
-  background-color: @backgroundAlpha;
-  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+  color: @color15;
+  min-height: 30px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 .modules-left {
 }
 .modules-right {
-  background-color: @color3;
+  background-color: @color4;
 }
 .modules-center {
 }
@@ -25,7 +26,7 @@ window#waybar {
 #window {
   transition-duration: 100ms;
   transition-property: all;
-  color: @color7;
+  color: @color15;
   padding: 0px 15px 0px 10px;
   background-color: @color6;
   border-top-right-radius: 15px;
@@ -35,27 +36,27 @@ window#waybar {
 /* Workspaces module styling */
 #workspaces {
   background-color: @color3;
-  margin: 0px 5px;
+  /* margin: 0px 5px; */
   border-radius: 6px;
 }
 
 #workspaces button {
-  padding: 0 5px;
   background-color: transparent;
-  color: @color7;
+  color: @color15;
 }
 
 #workspaces button:hover {
   transition-duration: 100ms;
   padding: 0px 15px;
-  color: @color8;
+  color: @color15;
+  border-radius: 6px;
 }
 
 #workspaces button.active{
   background-color: @color2;
   transition-duration: 100ms;
   border-radius: 6px;
-  padding: 0px 10px;
+  padding: 0px 15px;
   transition-property: all;
 }
 
@@ -130,31 +131,17 @@ button:hover {
 }
 
 #clock {
-  background-color: #64727d;
-  margin-bottom: 3px;
+  background-color: @color1;
+  color:@color15;
 }
 
 #battery {
-  background-color: @background;
-  color: @foreground;
+  background-color: @color2;
+  color: @color15;
 }
-
-#battery.charging,
-#battery.plugged {
-  color: @foreground;
-  background-color: @background;
-  margin-bottom: 3px;
+.plugged {
 }
-
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
-}
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
+.critical:not(.charging) {
   background-color: #f53c3c;
   color: #ffffff;
   animation-name: blink;
@@ -163,6 +150,15 @@ button:hover {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
 
 #power-profiles-daemon {
   padding-right: 15px;

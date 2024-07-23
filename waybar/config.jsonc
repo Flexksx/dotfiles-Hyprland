@@ -24,7 +24,7 @@
   },
   "cpu": {
     "interval": 5,
-    "format": "{usage} % "
+    "format": "{usage} % 💻"
   },
   "hyprland/workspaces": {
     "sort": "default",
