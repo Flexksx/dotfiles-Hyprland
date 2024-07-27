@@ -17,7 +17,9 @@ window#waybar {
 .modules-left {
 }
 .modules-right {
-  background-color: @color4;
+  background-color: @color14;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 .modules-center {
 }
@@ -132,11 +134,15 @@ button:hover {
 
 #clock {
   background-color: @color1;
+  border-radius: 20px;
+  margin: 0 2px;
   color:@color15;
 }
 
 #battery {
   background-color: @color2;
+  border-radius: 20px;
+  margin: 0 2px;
   color: @color15;
 }
 .plugged {
@@ -184,8 +190,10 @@ label:focus {
 }
 
 #cpu {
-  background-color: #2ecc71;
-  color: #000000;
+  background-color: @color3;
+  border-radius: 20px;
+  margin: 0 2px;
+  color: @color15;
 }
 
 #memory {
@@ -209,8 +217,10 @@ label:focus {
 }
 
 #wireplumber {
-  background-color: @color3;
-  color: @color7;
+  background-color: @color4;
+  border-radius: 20px;
+  margin: 0 2px;
+  color: @color15;
 }
 
 #wireplumber.hover {
@@ -238,8 +248,10 @@ label:focus {
 }
 
 #temperature {
-  background-color: @color4;
-  color: @color7;
+  background-color: @color12;
+  border-radius: 20px;
+  margin: 0 2px;
+  color: @color15;
 }
 
 #temperature.critical {
@@ -248,7 +260,8 @@ label:focus {
 }
 
 #tray {
-  background-color: #2980b9;
+  background-color: @color3;
+  border-radius: 20px;
 }
 
 #tray > .passive {
