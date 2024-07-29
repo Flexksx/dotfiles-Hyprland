@@ -1,0 +1,9 @@
+@import url("file:///home/flexksx/.cache/wal/colors-gtk3.css");
+
+#clock {
+    background-color: @color2;
+    border-radius: 20px;
+    margin: 0 2px;
+    padding:0 5px;
+    color:@foreground;
+  }

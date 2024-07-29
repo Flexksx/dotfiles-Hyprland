@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "modules-center": ["hyprland/workspaces"],
-  "modules-left": ["hyprland/window"],
+  "modules-left": ["hyprland/window", "custom/mediaplayers"],
   "modules-right": [
     "wireplumber",
     "temperature",
@@ -20,7 +20,8 @@
     "format-icons": ["", "", "", "", ""]
   },
   "clock": {
-    "format-alt": "{:%a, %d. %b  %H:%M}"
+    "format-alt": "{:%a, %d. %b  %H:%M}",
+    "tooltip-format": "<big>{:%Y %B \t   week: %V }</big>\n<tt>{calendar}</tt>"
   },
   "cpu": {
     "interval": 5,
@@ -75,7 +76,7 @@
   "hyprland/window": {
     "icon": true,
     "format": "{title}",
-    "max-length": 50
+    "max-length": 30
   },
   "custom/darkmode": {
     // "format": " 🌕 ",
@@ -83,5 +84,17 @@
     "interval": 10,
     "on-click": "~/dotfiles-Hyprland/waybar/scripts/darkmode.sh",
     "on-click-right": "~/dotfiles-Hyprland/waybar/scripts/lightmode.sh"
+  },
+  "custom/mediaplayers": {
+    "exec": "python3 /home/flexksx/dotfiles-Hyprland/waybar/scripts/mediaplayer.py",
+    "format": "󰕾 {} ",
+    "max-length": 30,
+    "return-type": "json",
+    "on-click": "playerctl play-pause"
+  },
+  "custom/separator": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false
   }
 }

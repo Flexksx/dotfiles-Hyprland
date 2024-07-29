@@ -1,0 +1,8 @@
+@import url("file:///home/flexksx/.cache/wal/colors-gtk3.css");
+
+#custom-mediaplayers {
+  background-color: @color3;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: #ffffff;
+}
