@@ -1,9 +1,6 @@
-@import url("file:///home/flexksx/.cache/wal/colors-gtk3.css");
-
 #battery {
   background-color: @color2;
-  border-radius: 20px;
-  margin: 0 2px;
+  border-radius: 24px;
   color: @color15;
 }
 .plugged {

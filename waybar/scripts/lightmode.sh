@@ -2,10 +2,17 @@
 
 DIR='/home/flexksx/dotfiles-Hyprland/backrgrounds/light'
 BG=$(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.gif" \) | shuf -n 1)
-swww img --transition-type wipe --transition-angle 30 --transition-step 90 $BG
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-wal -i $BG -l --saturate 0.4 --cols16 lighten
 
+# Apply the wallpaper to all monitors without specifying a monitor
+hyprctl hyprpaper wallpaper ", $BG"
+
+# Set the system's color scheme to prefer light mode
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+
+# Apply the wallpaper using wal with light mode and adjusted saturation
+wal -i "$BG" -l --saturate 0.4 --cols16 lighten
+
+# Update the waybar style
 STYLE_PATH='/home/flexksx/dotfiles-Hyprland/waybar/style.css'
 content=$(cat "$STYLE_PATH")
 echo "$content" | tee "$STYLE_PATH" > /dev/null

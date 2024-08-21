@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "modules-center": ["hyprland/workspaces"],
-  "modules-left": ["hyprland/window", "custom/mediaplayers"],
+  "modules-left": ["hyprland/window", "custom/separator","custom/mediaplayers"],
   "modules-right": [
     "wireplumber",
     "temperature",
@@ -11,6 +11,9 @@
     "custom/darkmode",
     "tray"
   ],
+  "margin-left": 15,
+  "margin-right": 15,
+  "margin-top": 5,
   "reload_style_on_change": true,
   "sway/window": {
     "max-length": 50
@@ -70,7 +73,9 @@
       "class<Code>": "󰨞",
       "class<com.obsproject.Studio|zoom>": "",
       "class<io.github.whoozle.android-file-transfer>": "",
-      "class<(Chromium)|(Chrome)>": ""
+      "class<(Chromium)|(Chrome)>": "",
+      "class<(slack|Slack)>": "󰒱",
+      "class<.*rgb.*>": ""
     }
   },
   "hyprland/window": {
@@ -93,7 +98,7 @@
     "on-click": "playerctl play-pause"
   },
   "custom/separator": {
-    "format": "|",
+    "format": "\uE0B0",
     "interval": "once",
     "tooltip": false
   }

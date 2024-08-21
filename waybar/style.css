@@ -11,25 +11,29 @@
 
 /* Overall Waybar styling */
 window#waybar {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: @color14Alpha;
   color: @color14;
   min-height: 30px;
   transition-property: background-color;
   transition-duration: 0.5s;
+  border-radius: 24px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 .modules-left {
+  border-radius: 24px;
 }
 .modules-center {
 }
 .modules-right {
   background-color: @color14;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-radius: 24px;
 }
 
 #custom-separator{
-  background-color: @color14;
-  border-radius: 20px;
+  /* background-color: @color14; */
+  /* border-radius: 20px; */
+  font-size: large;
 }
 
 

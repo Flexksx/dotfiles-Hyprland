@@ -5,8 +5,7 @@
   color: #ffffff;
   padding: 0px 15px 0px 10px;
   background-color: @color2;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-radius: 24px;
 }
 
 
