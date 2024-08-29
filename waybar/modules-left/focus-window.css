@@ -3,9 +3,9 @@
   transition-duration: 100ms;
   transition-property: all;
   color: #ffffff;
-  padding: 0px 15px 0px 10px;
+  padding: 0px 5px 0px 10px;
   background-color: @color2;
-  border-radius: 24px;
+  border-radius: 0px 0px 0px 24px;
 }
 
 

@@ -33,7 +33,9 @@ window#waybar {
 #custom-separator{
   /* background-color: @color14; */
   /* border-radius: 20px; */
-  font-size: large;
+  font-size: 30px;
+  background-color: @color3;
+  color: @color2;
 }
 
 
