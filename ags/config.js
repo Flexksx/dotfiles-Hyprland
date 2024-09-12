@@ -1,9 +1,9 @@
-const hyprland = await Service.import("hyprland")
-const notifications = await Service.import("notifications")
-const mpris = await Service.import("mpris")
-const audio = await Service.import("audio")
-const battery = await Service.import("battery")
-const systemtray = await Service.import("systemtray")
+const notifications = await Service.import("notifications");
+const mpris = await Service.import("mpris");
+const audio = await Service.import("audio");
+const battery = await Service.import("battery");
+const systemtray = await Service.import("systemtray");
+import { Center } from "./center/center.js";
 
 const date = Variable("", {
     poll: [1000, 'date "+%H:%M:%S %b %e."'],
@@ -13,29 +13,14 @@ const date = Variable("", {
 // so to make a reuseable widget, make it a function
 // then you can simply instantiate one by calling it
 
-function Workspaces() {
-    const activeId = hyprland.active.workspace.bind("id")
-    const workspaces = hyprland.bind("workspaces")
-        .as(ws => ws.map(({ id }) => Widget.Button({
-            on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-            child: Widget.Label(`${id}`),
-            class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
-        })))
-
-    return Widget.Box({
-        class_name: "workspaces",
-        children: workspaces,
-    })
-}
 
 
-function ClientTitle() {
-    return Widget.Label({
-        class_name: "client-title",
-        label: hyprland.active.client.bind("title"),
-    })
-}
-
+// function ClientTitle() {
+//     return Widget.Label({
+//         class_name: "client-title",
+//         label: hyprland.active.client.bind("title"),
+//     })
+// }
 
 function Clock() {
     return Widget.Label({
@@ -161,21 +146,20 @@ function Left() {
     return Widget.Box({
         spacing: 8,
         children: [
-            ClientTitle(),
-            Media(),
+            // ClientTitle(),
         ],
     })
 }
 
-function Center() {
-    return Widget.Box({
-        spacing: 8,
-        children: [
-            Workspaces(),
-            Notification(),
-        ],
-    })
-}
+// function Center() {
+//     return Widget.Box({
+//         spacing: 8,
+//         children: [
+//             Media(),
+//             Notification(),
+//         ],
+//     })
+// }
 
 function Right() {
     return Widget.Box({
@@ -208,11 +192,11 @@ function Bar(monitor = 0) {
 App.config({
     style: "./style.css",
     windows: [
-        Bar(),
 
         // you can call it, for each monitor
-        // Bar(0),
-        // Bar(1)
+        Bar(0),
+        Bar(1),
+        Bar(2),
     ],
 })
 
