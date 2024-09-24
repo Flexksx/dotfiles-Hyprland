@@ -19,7 +19,7 @@ export const cpuProgress = () => {
         child:
             Widget.Label({
                 css: 'font-size: 15px;',
-                label: cpu.bind().as(p => `${Math.floor(p)}%`),
+                label: cpu.bind("value").as(p => `${Math.floor(p)}%`),
             }),
     })
 }
