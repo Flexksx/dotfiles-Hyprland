@@ -1,9 +1,9 @@
 const notifications = await Service.import("notifications");
 const mpris = await Service.import("mpris");
 const audio = await Service.import("audio");
-const battery = await Service.import("battery");
 const systemtray = await Service.import("systemtray");
-import { Center } from "./center/center.js";
+import Center from "./center/center.js";
+import Right from "./right/right.js";
 
 const date = Variable("", {
     poll: [1000, 'date "+%H:%M:%S %b %e."'],
@@ -106,24 +106,24 @@ function Volume() {
 }
 
 
-function BatteryLabel() {
-    const value = battery.bind("percent").as(p => p > 0 ? p / 100 : 0)
-    const icon = battery.bind("percent").as(p =>
-        `battery-level-${Math.floor(p / 10) * 10}-symbolic`)
+// function BatteryLabel() {
+//     const value = battery.bind("percent").as(p => p > 0 ? p / 100 : 0)
+//     const icon = battery.bind("percent").as(p =>
+//         `battery-level-${Math.floor(p / 10) * 10}-symbolic`)
 
-    return Widget.Box({
-        class_name: "battery",
-        visible: battery.bind("available"),
-        children: [
-            Widget.Icon({ icon }),
-            Widget.LevelBar({
-                widthRequest: 140,
-                vpack: "center",
-                value,
-            }),
-        ],
-    })
-}
+//     return Widget.Box({
+//         class_name: "battery",
+//         visible: battery.bind("available"),
+//         children: [
+//             Widget.Icon({ icon }),
+//             Widget.LevelBar({
+//                 widthRequest: 140,
+//                 vpack: "center",
+//                 value,
+//             }),
+//         ],
+//     })
+// }
 
 
 function SysTray() {
@@ -161,18 +161,18 @@ function Left() {
 //     })
 // }
 
-function Right() {
-    return Widget.Box({
-        hpack: "end",
-        spacing: 8,
-        children: [
-            Volume(),
-            BatteryLabel(),
-            Clock(),
-            SysTray(),
-        ],
-    })
-}
+// function Right() {
+//     return Widget.Box({
+//         hpack: "end",
+//         spacing: 8,
+//         children: [
+//             Volume(),
+//             BatteryLabel(),
+//             Clock(),
+//             SysTray(),
+//         ],
+//     })
+// }
 
 function Bar(monitor = 0) {
     return Widget.Window({

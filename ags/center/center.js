@@ -1,6 +1,6 @@
-import { Workspaces } from "./workspaces/workspaces.js";   
+import Workspaces from "./workspaces/workspaces.js";
 
-export function Center() {
+const Center = () => {
     return Widget.Box({
         class_name: "center",
         children: [
@@ -8,3 +8,5 @@ export function Center() {
         ],
     })
 }
+
+export default Center;
