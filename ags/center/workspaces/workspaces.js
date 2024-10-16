@@ -1,55 +1,5 @@
 const hyprland = await Service.import("hyprland")
-
-// function Workspaces() {
-//     const activeId = hyprland.active.workspace.bind("id")
-//     const workspaces = hyprland.bind("workspaces")
-//         .as(ws => ws.map(({ id }) => Widget.Button({
-//             on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-//             child: Widget.Label(`${id}`),
-//             class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
-//         })))
-
-//     return workspaces
-// }
-
-const icons = {
-    "org.telegram.desktop": "",
-    "kitty": "",
-    "kitty .*top.*": "",
-    "kitty .*pacman.*": "",
-    "com.github.weclaw1.ImageRoll|nomacs": "",
-    "(.*[$%#] *)?nvim.*": "",
-    "(.*[$%#] *)?([hb]|nv)top.*": "",
-    "firefox": "",
-    "discord": "",
-    "Discord.*": "",
-    ".[0-9]+. Discord.*": " °",
-    "Signal": "󰍡",
-    "(.* - )?(.[0-9]+. )?YouTube.*": "",
-    ".* - Gmail .*": "󰊫",
-    "obsidian": "󱞁",
-    "ONLYOFFICE Desktop Editors": "󰈙",
-    "calibre-.*": "",
-    "org.qbittorrent.qBittorrent": "",
-    "org.kde.kdeconnect.*": "",
-    "mpv": "",
-    "vlc": "󰕼",
-    "Gimp-.*": "",
-    "steam.*": "󰓓", //  for FontAwesome
-    "steam Friends List": "",
-    "steam_app_[0-9]+": "󰮂",
-    "Winetricks.*": "󰡶",
-    "lutris": "🦦",
-    "Spotify": "",
-    "jetbrains-idea(-ce)?": "",
-    ".*youtube.*": "",
-    "Code": "󰨞",
-    "com.obsproject.Studio|zoom": "",
-    "io.github.whoozle.android-file-transfer": "",
-    "(Chromium|Chrome|chrome)": "",
-    "(slack|Slack)": "󰒱",
-    ".*rgb.*": ""
-}
+import { icons } from "./iconsMap.js"
 
 const getIcon = (/** @type {string} */ name) => {
     for (const [pattern, icon] of Object.entries(icons)) {
@@ -81,17 +31,13 @@ const getWorkspaces = () => {
 }
 
 const createWorkspaceButton = (/** @type {number} */ id) => {
-    const className = getActiveWorkspace().as(i => `${i === id ? "focused" : ""}`)
+    const className = getActiveWorkspace().as(i => `${i === id ? "focused" : "notfocused"}`)
     const icons = getIconsForWorkspace(id)
-    const label = `${icons}`
 
-    const workspaceIconsLabel = Widget.Label({ label: `${label}`, css: "font-size: 24px;" })
-    const workspaceIdLabel = Widget.Label({ label: `${id}  `, css: "font-size: 14px;" })
-
-    const workspaceLabel = Widget.Box({ children: [workspaceIdLabel, workspaceIconsLabel] })
     return Widget.Button({
         on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-        child: workspaceLabel,
+        css: "background-color:transparent",
+        label: `${id}  ${icons}`,
         class_name: className,
     })
 }
@@ -102,7 +48,7 @@ const instantiateWorkspaceButtons = () => {
 
 const Workspaces = () => {
     const workspaces = instantiateWorkspaceButtons()
-    return Widget.Box({ children: workspaces })
+    return Widget.Box({ children: workspaces, class_name: "workspaces" })
 }
 
 // const dispatch = (arg: string | number) => hyprland.messageAsync(`dispatch workspace ${arg}`)
